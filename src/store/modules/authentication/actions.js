@@ -10,7 +10,7 @@ const httpOptions = {
 export default {
   async login ({dispatch, commit}, user) {
     axios
-      .post('https://localhost:8443/token/generate-token', user, {httpOptions})
+      .post(`${process.env.BIBWEB_API_URL}/token/generate-token`, user, {httpOptions})
       .then(r => r.data)
       .then(loggedInUser => {
         commit('SET_USERNAME', user.username)
@@ -34,7 +34,7 @@ export default {
     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
 
     axios
-      .get('https://localhost:8443/users/me', {httpOptions})
+      .get(`${process.env.BIBWEB_API_URL}/users/me`, {httpOptions})
       .then(user => commit('SET_USER', user.data))
   }
 }
