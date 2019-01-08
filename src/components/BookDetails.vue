@@ -1,6 +1,6 @@
 <template>
   <div id="container" class="mdl-cell--middle mdl-cell--5-col">
-    <h3>Details of <!--{{book.title}}--> <book-actions :book="book"></book-actions></h3>
+    <h3>Details of {{book.title}} <book-actions :book="book"></book-actions></h3>
 
     <table class="full-width text-align-left mdl-data-table mdl-js-data-table mdl-shadow--2dp">
       <tr>

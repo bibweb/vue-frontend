@@ -40,7 +40,7 @@
     },
     watch: {
       logged_in: function (val) {
-        this.redirectIfLoggedIn()
+        if (val) this.redirectIfLoggedIn()
       }
     },
     methods: {

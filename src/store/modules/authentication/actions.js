@@ -28,13 +28,15 @@ export default {
     commit('SET_USERNAME', 'Not logged in')
     commit('SET_TOKEN', '')
     commit('SET_LOGGED_IN', false)
+    commit('SET_ADMIN_MODE', false)
   },
 
-  async loadUser ({dispatch, commit}, token) {
+  async loadUser ({commit}, token) {
     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
 
     axios
       .get(`${process.env.BIBWEB_API_URL}/users/me`, {httpOptions})
       .then(user => commit('SET_USER', user.data))
   }
+
 }

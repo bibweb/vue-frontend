@@ -1,6 +1,6 @@
 <template>
   <div id="container" class="mdl-cell--middle mdl-cell--5-col">
-    <h3>Edit Details of <!--{{book.title}}--> <book-actions :book="book"></book-actions></h3>
+    <h3>Edit Details of {{book.title}} <book-actions :book="book"></book-actions></h3>
 
     <form class="tbl">
       <p>
