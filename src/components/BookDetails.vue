@@ -1,6 +1,6 @@
 <template>
   <div id="container" class="mdl-cell--middle mdl-cell--5-col">
-    <h3>Details of {{book.title}}</h3>
+    <h3>Details of <!--{{book.title}}--> <book-actions :book="book"></book-actions></h3>
 
     <table class="full-width text-align-left mdl-data-table mdl-js-data-table mdl-shadow--2dp">
       <tr>
@@ -27,15 +27,20 @@
 
     <br />
 
-    <button class="right-align mdl-button mdl-button--raised mdl-button--colored" @click="goBack()">Go Back</button>
+    <span class="right-align">
+      <button class="mdl-button mdl-button--raised mdl-button--colored" v-if="is_admin" @click="edit()">Edit</button>
+      <button class="mdl-button mdl-button--raised mdl-button--colored" @click="goBack()">Go Back</button>
+    </span>
 
   </div>
 </template>
 
 <script>
   import {mapGetters} from 'vuex'
+  import BookActions from './BookActions'
 
   export default {
+    components: {BookActions},
     data () {
       return {
         bookId: +this.$route.params.id
@@ -43,6 +48,7 @@
     },
     computed: {
       ...mapGetters('books', ['bookList']),
+      ...mapGetters('authentication', ['is_admin']),
       book () {
         var retVal = {
           id: this.bookId,
@@ -60,6 +66,9 @@
       }
     },
     methods: {
+      edit () {
+        this.$router.push('/books/' + this.bookId + '/update')
+      },
       goBack () {
         this.$router.go(-1)
       }

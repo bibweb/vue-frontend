@@ -6,6 +6,7 @@ const state = {
   user_token: '',
   user_name: 'Not logged in',
   logged_in: false,
+  is_admin: false,
   user: null
 }
 
