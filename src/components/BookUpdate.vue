@@ -8,22 +8,22 @@
         <input type="plaintext" id="id" :value="book.id" />
       </p>
 
-      <p class="tbl-tr">
+      <p>
         <label for="title">Title</label>
         <input type="text" id="title" v-model="book.title" />
       </p>
 
-      <p class="tbl-tr">
+      <p>
         <label for="isbn">ISBN</label>
         <input type="text" id="isbn" v-model="book.isbn" />
       </p>
 
-      <p class="tbl-tr">
+      <p>
         <label for="numberOfPages">Number Of Pages</label>
         <input type="text" id="numberOfPages" v-model="book.numberOfPages" />
       </p>
 
-      <p class="tbl-tr">
+      <p>
         <label for="releaseYear">Release Year</label>
         <input type="text" id="releaseYear" v-model="book.releaseYear" />
       </p>
